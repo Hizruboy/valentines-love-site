@@ -10,7 +10,7 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
         >
-          I don’t say this enough.
+          I don’t say this enough, Shruti Subedi.
         </motion.h1>
       </section>
 
@@ -41,7 +41,7 @@ export default function App() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2 }}
         >
-          This is me choosing you — again.
+          No matter what,it's you.
         </motion.h2>
       </section>
     </div>
