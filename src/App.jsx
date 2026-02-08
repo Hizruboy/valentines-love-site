@@ -1,8 +1,30 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./index.css";
 
 export default function App() {
+  const audioRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+
+  // autoplay after first interaction
+  useEffect(() => {
+    const startMusic = () => {
+      if (audioRef.current && !playing) {
+        audioRef.current.play();
+        setPlaying(true);
+      }
+      window.removeEventListener("click", startMusic);
+      window.removeEventListener("scroll", startMusic);
+    };
+
+    window.addEventListener("click", startMusic);
+    window.addEventListener("scroll", startMusic);
+
+    return () => {
+      window.removeEventListener("click", startMusic);
+      window.removeEventListener("scroll", startMusic);
+    };
+  }, [playing]);
 
   // cursor glow effect
   useEffect(() => {
@@ -25,6 +47,10 @@ export default function App() {
 
   return (
     <div>
+      {/* MUSIC */}
+      <audio ref={audioRef} loop>
+        <source src="/music.mp3" type="audio/mpeg" />
+      </audio>
 
       {/* HERO */}
       <section className="section center">
@@ -67,50 +93,49 @@ export default function App() {
           to die by your side is such a heavenly way to die.
         </motion.h2>
       </section>
-       {/* PHOTO COLLAGE SECTION */}
-<section className="section collage">
-  <motion.img
-    src="/photo1.jpg"
-    className="photo floating p1"
-    initial={{ opacity: 0, y: 80 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.2 }}
-  />
 
-  <motion.img
-    src="/photo2.jpg"
-    className="photo floating p2"
-    initial={{ opacity: 0, y: 80 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.4 }}
-  />
+      {/* PHOTO COLLAGE */}
+      <section className="section collage">
+        <motion.img
+          src="/photo1.jpg"
+          className="photo floating p1"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+        />
 
-  <motion.img
-    src="/photo3.jpg"
-    className="photo floating p3"
-    initial={{ opacity: 0, y: 80 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.6 }}
-  />
+        <motion.img
+          src="/photo2.jpg"
+          className="photo floating p2"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.4 }}
+        />
 
-  <motion.img
-    src="/photo4.jpg"
-    className="photo floating p4"
-    initial={{ opacity: 0, y: 80 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1.8 }}
-  />
+        <motion.img
+          src="/photo3.jpg"
+          className="photo floating p3"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.6 }}
+        />
 
-  <motion.img
-    src="/photo5.jpg"
-    className="photo floating p5"
-    initial={{ opacity: 0, y: 80 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 2 }}
-  />
-</section>
+        <motion.img
+          src="/photo4.jpg"
+          className="photo floating p4"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.8 }}
+        />
 
-      
+        <motion.img
+          src="/photo5.jpg"
+          className="photo floating p5"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+        />
+      </section>
 
       {/* EMOTIONAL TEXT */}
       <section className="section">
@@ -137,7 +162,6 @@ export default function App() {
           Still choosing you.
         </motion.h1>
       </section>
-
     </div>
   );
 }
