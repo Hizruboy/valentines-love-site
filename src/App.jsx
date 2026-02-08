@@ -1,7 +1,28 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import "./index.css";
 
 export default function App() {
+
+  // cursor glow effect
+  useEffect(() => {
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    document.body.appendChild(glow);
+
+    const moveGlow = (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+    };
+
+    window.addEventListener("mousemove", moveGlow);
+
+    return () => {
+      window.removeEventListener("mousemove", moveGlow);
+      glow.remove();
+    };
+  }, []);
+
   return (
     <div>
 
@@ -47,14 +68,14 @@ export default function App() {
         </motion.h2>
       </section>
 
-      {/* PHOTO SECTION */}
+      {/* FLOATING PHOTO SECTION */}
       <section className="section center">
         <motion.img
           src="/photo1.jpg"
           alt="us"
-          className="photo"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="photo floating"
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
         />
       </section>
