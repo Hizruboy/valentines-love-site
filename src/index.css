@@ -1,37 +1,72 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   color: #f2f2f2;
   background: 
-    linear-gradient(rgba(10, 10, 15, 0.75), rgba(10, 10, 15, 0.9)),
+    linear-gradient(rgba(5,5,8,0.8), rgba(5,5,8,0.95)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80")
     center/cover no-repeat fixed;
   overflow-x: hidden;
 }
 
-
-.section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10vw;
-}
-
-h1, h2 {
-  font-weight: 400;
-  font-size: 3rem;
-}
-
-p {
-  margin-top: 20px;
-  opacity: 0.7;
-}
+/* grain */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.08;
+  opacity: 0.07;
   pointer-events: none;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+}
+
+.dark {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* typography */
+.hero-text {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+}
+
+.lyric {
+  font-size: 2.5rem;
+  margin: 20px 0;
+  opacity: 0.8;
+}
+
+.highlight {
+  color: #c2183b;
+  font-size: 3rem;
+}
+
+.soft-text {
+  font-size: 2.5rem;
+  opacity: 0.85;
+}
+
+/* photo */
+.photo {
+  width: 300px;
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transition: transform 0.4s;
+}
+
+.photo:hover {
+  transform: scale(1.05);
 }
