@@ -90,4 +90,21 @@ body::after {
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
+.collage {
+  position: relative;
+  height: 120vh;
+}
+
+/* different photo positions */
+.p1 { position: absolute; top: 10%; left: 10%; }
+.p2 { position: absolute; top: 20%; right: 12%; }
+.p3 { position: absolute; bottom: 15%; left: 18%; }
+.p4 { position: absolute; bottom: 10%; right: 10%; }
+.p5 { position: absolute; top: 40%; left: 40%; }
+
+.photo {
+  width: 220px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
 

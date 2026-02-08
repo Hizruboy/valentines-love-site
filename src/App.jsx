@@ -67,18 +67,50 @@ export default function App() {
           to die by your side is such a heavenly way to die.
         </motion.h2>
       </section>
+       {/* PHOTO COLLAGE SECTION */}
+<section className="section collage">
+  <motion.img
+    src="/photo1.jpg"
+    className="photo floating p1"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.2 }}
+  />
 
-      {/* FLOATING PHOTO SECTION */}
-      <section className="section center">
-        <motion.img
-          src="/photo1.jpg"
-          alt="us"
-          className="photo floating"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5 }}
-        />
-      </section>
+  <motion.img
+    src="/photo2.jpg"
+    className="photo floating p2"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.4 }}
+  />
+
+  <motion.img
+    src="/photo3.jpg"
+    className="photo floating p3"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.6 }}
+  />
+
+  <motion.img
+    src="/photo4.jpg"
+    className="photo floating p4"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.8 }}
+  />
+
+  <motion.img
+    src="/photo5.jpg"
+    className="photo floating p5"
+    initial={{ opacity: 0, y: 80 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 2 }}
+  />
+</section>
+
+      
 
       {/* EMOTIONAL TEXT */}
       <section className="section">
